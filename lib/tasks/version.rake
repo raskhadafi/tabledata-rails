@@ -15,4 +15,5 @@ rule(/^version:bump:.*/) do |t|
   end
 
   sh "rake install && bundle && git add #{file} Gemfile.lock && git commit -m 'Bump version to #{new_version}' && git push"
+  Rake::Task["release"].invoke
 end
