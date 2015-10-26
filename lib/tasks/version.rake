@@ -14,6 +14,6 @@ rule(/^version:bump:.*/) do |t|
     f.write(version_file.sub(old_version, new_version))
   end
 
-  sh "rake install && bundle && git add #{file} Gemfile.lock && git commit -m 'Bump version to #{new_version}' && git push"
+  sh "rake install && bundle && git add #{file} && git commit -m 'Bump version to #{new_version}' && git push"
   Rake::Task["release"].invoke
 end
