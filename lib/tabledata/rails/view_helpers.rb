@@ -81,7 +81,7 @@ module Tabledata
           "header".freeze,
           ".".freeze,
           column_name
-        ].compact!.join
+        ].compact.join
       end
 
       def i18n_error_key(column_name, key, i18n_scope)
@@ -95,7 +95,7 @@ module Tabledata
           column_name,
           ".".freeze,
           key.to_s
-        ].compact!.join
+        ].compact.join
       end
 
       def column_has_error?(row, column_definition)
