@@ -66,7 +66,8 @@ module Tabledata
         row.column_errors[accessor].each do |key, options|
           raise options if key == :exception
 
-          error_texts << t(i18n_error_key(accessor, key, i18n_scope), options)
+          opts = options || {} # options might be nil
+          error_texts << t(i18n_error_key(accessor, key, i18n_scope), opts)
         end
 
         error_texts.join("<br />".freeze)
